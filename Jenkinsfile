@@ -4,7 +4,7 @@ pipeline {
     }
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven "Maven3"
+        maven "Maven"
     }
     environment {
         // This can be nexus3 or nexus2
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/ybmadhu/spring3-mvc-maven-xml-hello-world.git';
+                    git 'https://github.com/Singaravelan07/spring3-mvc-maven-xml-hello-world.git ';
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
                 script {
                     // If you are using Windows then you should use "bat" step
                     // Since unit testing is out of the scope we skip them
-                    sh script(/${MAVEN_HOME}\bin\mvn -Dmaven.test.failure.ignore clean package/)
+                    sh "'${MAVEN_HOME}\bin\mvn' -Dmaven.test.failure.ignore clean package"
                 }
             }
         }
